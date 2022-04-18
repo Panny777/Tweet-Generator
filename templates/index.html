@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+  <title>Tweet Generator</title>
+  <link
+    rel="shortcut icon"
+    href="{{ url_for('static', filename='twitter-logo.png') }}"
+  />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  
+</head>
+
+<body>
+  <a href="/">
+    <img src="./static/twitter-logo.png" class="icon" />
+  </a>
+
+  <h3>Generate a Tweet</h3>
+
+  <form action="/" method="post">
+    <input type="text" name="tweet" placeholder="Enter a topic" required />
+    <button id="submit-btn" type="submit" onclick="changeText()">Generate Tweet</button>
+  </form>
+
+  {% if result %}
+  <div class="result">{{ result }}</div>
+  {% endif %}
+
+</body>
+
+<script type="text/javascript">
+  function changeText() {
+    var x = document.getElementById("submit-btn");
+    if (x.innerText == "Generate Tweet") {
+      x.innerText = "Generating..";
+    } else {
+      x.innerText = "Generate Tweet";
+    }
+  }
+</script>
