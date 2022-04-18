@@ -14,6 +14,7 @@ def index():
             engine="text-davinci-002",
             prompt=generate_prompt(tweet),
             temperature=0.6,
+            max_tokens=100
         )
         return redirect(url_for("index", result=response.choices[0].text))
 
